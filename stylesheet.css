@@ -1,0 +1,62 @@
+* {
+    margin: 0;
+    padding: 10px;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+header {
+    background-color: blue;
+    padding: 50px;
+    text-align: center;
+}
+
+Header h1 {
+    font-size: 50px;
+    color: white;
+}
+
+
+.indexKaart {
+    display: flex;
+    background-color: #e6ffff;
+    width: 500px;
+    height: 120px;
+    border: 2px solid blue;
+    border-radius: 15px;
+    margin: 5px;
+}
+
+.foto {
+    width: 100px;
+    height: 100px; 
+    border: solid 2px blue;
+    border-radius: 15px;
+}
+
+.persInfo {
+    text-align: left;
+    line-height: 1.6;
+}
+
+.aletta {
+    background-image: url(picsalet/profielfotoA.jpeg);
+    background-size: cover;
+    background-position: center;
+}
+
+.jeroen {
+    background-image: url(picsjeroen/jeroen1.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.michael {
+    background-image: url(Michael.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+.buttonactive {
+    background-color: rgb(255, 0, 0);
+
