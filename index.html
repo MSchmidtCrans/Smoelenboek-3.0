@@ -2,7 +2,7 @@
 <html>
 <head>
 <Title>Smoelenboek index - Codegorilla 2019</Title>
-<link rel="stylesheet" type="text/css" href="StyleIndexMichael.css">
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -11,7 +11,7 @@
     A alpabatical filter needs to be applied before
     you can filter based on gender-->
 
-    
+
 
 <script>
 
@@ -26,8 +26,8 @@ $(document).ready(function(){
 
         //Hide all cards
         $(".indexKaart").hide();
-        
-        
+
+
 
         //Make or unmake buttoncolor red (=active) upon click event
         if($(this).css("background-color") == "rgb(255, 0, 0)") {
@@ -38,24 +38,24 @@ $(document).ready(function(){
 
         //Store all indexcards in one variable
         mijnLijst = $('.indexKaart');
-        
-        //Declare a variable to collect filtered indexcards based on active/inactive button      
+
+        //Declare a variable to collect filtered indexcards based on active/inactive button
         reslijst = $();
 
         //Declare a variable to hide/show genderfilter (userfriendly)
         x = 0;
-     
+
         //Filter through all buttons to check button color (red=active)
          if ($(".aTotiCheck").css("background-color") == "rgb(255, 0, 0)") {
             reslijst = reslijst.add(mijnLijst.filter(".aToti"));
-            x++;  
-         } 
+            x++;
+         }
          if ($(".jTotrCheck").css("background-color") == "rgb(255, 0, 0)") {
-            reslijst = reslijst.add(mijnLijst.filter(".jTotr")); 
-            x++;   
+            reslijst = reslijst.add(mijnLijst.filter(".jTotr"));
+            x++;
          }
          if ($(".sTotzCheck").css("background-color") == "rgb(255, 0, 0)") {
-            reslijst = reslijst.add(mijnLijst.filter(".sTotz"));    
+            reslijst = reslijst.add(mijnLijst.filter(".sTotz"));
             x++;
          }
 
@@ -69,28 +69,31 @@ $(document).ready(function(){
          //Continue button filtering
         if ($(".manBtn").css("background-color") == "rgb(255, 0, 0)") {
              console.log("man");
-            reslijst = reslijst.filter(".man");    
+            reslijst = reslijst.filter(".man");
         }
         if ($(".vrouwBtn").css("background-color") == "rgb(255, 0, 0)") {
-            reslijst = reslijst.filter(".vrouw");    
+            reslijst = reslijst.filter(".vrouw");
         }
 
         //Show collection
         if (reslijst != null)
           reslijst.show();
     });
-});  
+});
 
-    
-   
+
+
 </script>
 
 </head>
 
 <body>
+  <div class="mainContainer">
     <Header>
     <h1>Smoelenboek Index</h1>
     </Header>
+
+<div class="nav">
 
 <div class="alphabetIndex">
 <p style="width: 180px; display: inline-block;">1. Filter op alfabet</p><br>
@@ -105,10 +108,11 @@ $(document).ready(function(){
 <button class="vrouwBtn">Vrouw</button>
 </div>
 
-
+</div>
+<div class="cards">
 
           <div class="indexKaart aToti vrouw">
-            <div class="foto aletta"></div>            
+            <div class="foto aletta"></div>
             <div class="persInfo">
                 <p>Naam: Aletta Hoekstra<br>
                 Woonplaats: Leeuwarden<br>
@@ -117,7 +121,7 @@ $(document).ready(function(){
           </div>
 
           <div class="indexKaart aToti man">
-            <div class=""></div>            
+            <div class=""></div>
             <div class="persInfo">
                 <p>Naam: Henk proef<br>
                 Woonplaats: Leeuwarden<br>
@@ -160,6 +164,7 @@ $(document).ready(function(){
                     Geslacht: vrouw</p>
             </div>
          </div>
-
+       </div>
+</div>
 </body>
 </html>

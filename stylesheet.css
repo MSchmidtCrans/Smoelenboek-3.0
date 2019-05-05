@@ -5,7 +5,28 @@
     font-family: 'Roboto', sans-serif;
 }
 
+.mainContainer {
+  display: grid;
+  grid-template-columns: 275px auto;
+  grid-template-rows: : auto 1fr;
+  grid-template-areas:
+  "header header"
+  "nav cards"
+}
+
+.nav {
+  grid-area: nav;
+  background: yellow;
+
+}
+
+.cards {
+  grid-area: cards;
+  justify-content: start;
+}
+
 header {
+    grid-area: header;
     background-color: blue;
     padding: 50px;
     text-align: center;
@@ -29,7 +50,7 @@ Header h1 {
 
 .foto {
     width: 100px;
-    height: 100px; 
+    height: 100px;
     border: solid 2px blue;
     border-radius: 15px;
 }
@@ -59,4 +80,3 @@ Header h1 {
 
 .buttonactive {
     background-color: rgb(255, 0, 0);
-
