@@ -3,41 +3,22 @@
 
 $(document).ready(function(){
 
-  let indexText;
-
   //Call a php script to collect data from backend
   function indexPull() {
   $.get("http://10.1.254.102/Smoelenboek-3.0/smoelDataPull.php", function(data, status){
-    indexTest = data;
-    console.log(indexTest.firstName);
+
+    let indexCardClass = "indexKaart";
+    let strFirstLtr = data.lastName.charAt(0);
+    
+    data.gender == "man" ? indexCardClass += " man": indexCardClass += " woman";
+    if (strFirstLtr == "s" | "S") {indexCardClass += "jTotr"};
+
+    $("#cards").append('<div class=' + indexCardClass + '>' + '<div class="persInfo">' + 'test' + '</div></div>');
   });
   }
 
   indexPull();
 
-
-  
-
-
-
-  /*
-  function callScript() {
-    let x= new XMLHttpRequest();
-    x.onreadystatechange = function() {
-        if (this.readyState == 4 && this.status == 200) {
-          indexTest = JSON.parse(this.responseText);
-          $("#cards").append('<div class="indexKaart jTotr man">' + 
-              '<div class="persInfo">' + 
-                '<p>Naam: ' + indexTest.firstName + ' ' + indexTest.lastName + '<br>' +
-                    'Woonplaats: ' + indexTest.city + '<br>' +
-                      'Geslacht: ' + indexTest.gender + '<br></div></div>')
-        }
-    };
-
-  x.open("GET", "smoelDataPull.php", true);
-  x.send();
-}
-*/
 
 
 /*script for hiding/showing indexcards
