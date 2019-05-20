@@ -21,5 +21,7 @@ New Branch 'adding backend with data':
 
 3. Use simple HTML page to display results from PHP script -DONE-
 
-3. Adapt JS with AJAX to receive JSON data from backend
+4. Show decoded JSON on test html Page -DONE-
+
+5. Adapt original JS with AJAX to receive JSON data from backend
 
