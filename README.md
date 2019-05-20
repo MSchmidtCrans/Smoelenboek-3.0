@@ -1,5 +1,13 @@
 # Smoelenboek-3.0
-Based on prior exercises in Codegorilla - This version includes simple jQuery filtering and a Grid lay-out
+Based on prior exercises in Codegorilla - This version includes simple jQuery filtering and a Grid lay-out.
+
+Used techniques :
+CSS (grid)
+HTML
+JQUERY
+PHP
+AJAX
+Javascript
 
 
 1. Setup repo on GitHub and local station - DONE
@@ -13,7 +21,7 @@ Based on prior exercises in Codegorilla - This version includes simple jQuery fi
 5. Publish on GitHub
 
 
-New Branch 'adding backend with data':
+New Branch 'Use backend to pull index card data':
 
 1. Create test .txt file -DONE-
 

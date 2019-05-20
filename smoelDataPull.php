@@ -7,5 +7,5 @@ $myRead = fread($myfile,filesize("testDataSmoelenboek.txt"));
 
 $obj = json_decode($myRead, false);
 
-echo ($obj->firstName);
+echo json_encode($obj);
 ?>

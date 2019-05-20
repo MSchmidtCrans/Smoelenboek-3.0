@@ -2,6 +2,9 @@
 <html>
 <head>
 <Title>Smoelenboek index - Codegorilla 2019</Title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -17,9 +20,34 @@
 
 
 $(document).ready(function(){
+
+  let indexText;
+
+  //Call a php script to collect data from backend
+  function callScript() {
+    let x= new XMLHttpRequest();
+    x.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+          indexTest = JSON.parse(this.responseText);
+          $("#cards").append('<div class="indexKaart jTotr man">' + 
+              '<div class="persInfo">' + 
+                '<p>Naam: ' + indexTest.firstName + ' ' + indexTest.lastName + '<br>' +
+                    'Woonplaats: ' + indexTest.city + '<br>' +
+                      'Geslacht: ' + indexTest.gender + '<br></div></div>')
+        }
+    };
+
+  x.open("GET", "smoelDataPull.php", true);
+  x.send();
+}
+
+callScript();
+
     //Hide all cards until a filter is applied
     $(".indexKaart").hide();
     $(".genderIndex").hide();
+
+    
 
     //Trigger event handler
     $("button").click(function(){
@@ -109,16 +137,7 @@ $(document).ready(function(){
 </div>
 
 </div>
-<div class="cards">
-
-          <div class="indexKaart aToti vrouw">
-            <div class="foto aletta"></div>
-            <div class="persInfo">
-                <p>Naam: Aletta Hoekstra<br>
-                Woonplaats: Leeuwarden<br>
-                Geslacht: vrouw<br>
-            </div>
-          </div>
+<div class="cards" id="cards">
 
           <div class="indexKaart aToti man">
             <div class=""></div>
@@ -128,33 +147,6 @@ $(document).ready(function(){
                 Geslacht: man<br>
             </div>
           </div>
-
-          <div class="indexKaart jTotr man">
-                <div class="foto jeroen"></div>
-                <div class="persInfo">
-                    <p>Naam: Jeroen de Reus<br>
-                    Woonplaats: Groningen<br>
-                    Geslacht: man</p>
-                </div>
-         </div>
-
-         <div class="indexKaart jTotr vrouw">
-            <div class=""></div>
-            <div class="persInfo">
-                <p>Naam: Gerda proef<br>
-                Woonplaats: Groningen<br>
-                Geslacht: vrouw</p>
-            </div>
-     </div>
-
-         <div class="indexKaart sTotz man">
-            <div class="foto michael"></div>
-            <div class="persInfo">
-                    <p>Naam: Michael Schmidt Crans<br>
-                    Woonplaats: Leeuwarden<br>
-                    Geslacht: man</p>
-            </div>
-         </div>
 
          <div class="indexKaart sTotz vrouw">
             <div class=""></div>
