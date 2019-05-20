@@ -2,88 +2,14 @@
 <html>
 <head>
 <Title>Smoelenboek index - Codegorilla 2019</Title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta http-equiv="X-UA-Compatible" content="ie=edge">
 <link rel="stylesheet" type="text/css" href="stylesheet.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="script.js"></script>
 
-<!--Script for hiding/showing indexcards
-    Cards will only appear after a filter is applied
-    A alpabatical filter needs to be applied before
-    you can filter based on gender-->
-
-
-
-<script>
-
-
-$(document).ready(function(){
-    //Hide all cards until a filter is applied
-    $(".indexKaart").hide();
-    $(".genderIndex").hide();
-
-    //Trigger event handler
-    $("button").click(function(){
-
-        //Hide all cards
-        $(".indexKaart").hide();
-
-
-
-        //Make or unmake buttoncolor red (=active) upon click event
-        if($(this).css("background-color") == "rgb(255, 0, 0)") {
-           $(this).css("background-color", "");
-        } else {
-            $(this).css("background-color", "rgb(255,0,0)");
-        }
-
-        //Store all indexcards in one variable
-        mijnLijst = $('.indexKaart');
-
-        //Declare a variable to collect filtered indexcards based on active/inactive button
-        reslijst = $();
-
-        //Declare a variable to hide/show genderfilter (userfriendly)
-        x = 0;
-
-        //Filter through all buttons to check button color (red=active)
-         if ($(".aTotiCheck").css("background-color") == "rgb(255, 0, 0)") {
-            reslijst = reslijst.add(mijnLijst.filter(".aToti"));
-            x++;
-         }
-         if ($(".jTotrCheck").css("background-color") == "rgb(255, 0, 0)") {
-            reslijst = reslijst.add(mijnLijst.filter(".jTotr"));
-            x++;
-         }
-         if ($(".sTotzCheck").css("background-color") == "rgb(255, 0, 0)") {
-            reslijst = reslijst.add(mijnLijst.filter(".sTotz"));
-            x++;
-         }
-
-         //Only show the genderfilter when a alpabatical filter has been selected
-         if (x < 1) {
-            $(".genderIndex").hide();
-              } else {
-            $(".genderIndex").show();
-         }
-
-         //Continue button filtering
-        if ($(".manBtn").css("background-color") == "rgb(255, 0, 0)") {
-             console.log("man");
-            reslijst = reslijst.filter(".man");
-        }
-        if ($(".vrouwBtn").css("background-color") == "rgb(255, 0, 0)") {
-            reslijst = reslijst.filter(".vrouw");
-        }
-
-        //Show collection
-        if (reslijst != null)
-          reslijst.show();
-    });
-});
-
-
-
-</script>
 
 </head>
 
@@ -109,16 +35,7 @@ $(document).ready(function(){
 </div>
 
 </div>
-<div class="cards">
-
-          <div class="indexKaart aToti vrouw">
-            <div class="foto aletta"></div>
-            <div class="persInfo">
-                <p>Naam: Aletta Hoekstra<br>
-                Woonplaats: Leeuwarden<br>
-                Geslacht: vrouw<br>
-            </div>
-          </div>
+<div class="cards" id="cards">
 
           <div class="indexKaart aToti man">
             <div class=""></div>
@@ -128,33 +45,6 @@ $(document).ready(function(){
                 Geslacht: man<br>
             </div>
           </div>
-
-          <div class="indexKaart jTotr man">
-                <div class="foto jeroen"></div>
-                <div class="persInfo">
-                    <p>Naam: Jeroen de Reus<br>
-                    Woonplaats: Groningen<br>
-                    Geslacht: man</p>
-                </div>
-         </div>
-
-         <div class="indexKaart jTotr vrouw">
-            <div class=""></div>
-            <div class="persInfo">
-                <p>Naam: Gerda proef<br>
-                Woonplaats: Groningen<br>
-                Geslacht: vrouw</p>
-            </div>
-     </div>
-
-         <div class="indexKaart sTotz man">
-            <div class="foto michael"></div>
-            <div class="persInfo">
-                    <p>Naam: Michael Schmidt Crans<br>
-                    Woonplaats: Leeuwarden<br>
-                    Geslacht: man</p>
-            </div>
-         </div>
 
          <div class="indexKaart sTotz vrouw">
             <div class=""></div>
