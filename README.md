@@ -11,3 +11,15 @@ Based on prior exercises in Codegorilla - This version includes simple jQuery fi
 4. Style remaining elements
 
 5. Publish on GitHub
+
+
+New Branch 'adding backend with data':
+
+1. Create test .txt file -DONE-
+
+2. Create PHP script to pull data from textfile -DONE-
+
+3. Use simple HTML page to display results from PHP script -DONE-
+
+3. Adapt JS with AJAX to receive JSON data from backend
+
