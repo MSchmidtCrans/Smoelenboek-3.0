@@ -1,5 +1,6 @@
 # Smoelenboek-3.0
 Based on prior exercises in Codegorilla - This version includes simple jQuery filtering and a Grid lay-out.
+Update: Added backend functionality to pull data
 
 Demo page: (Momentarily not working because of use of local Db in a local virtual machine.) https://mschmidtcrans.github.io/Smoelenboek-3.0/
 
@@ -40,5 +41,5 @@ New Branch 'Use backend to pull index card data':
 
 7. Check if the PHP script accepts the new array -DONE-
 
-7. Adapt JS to itterate through more then one entrie from backend.
+7. Adapt JS to itterate through more then one entrie from backend. -DONE-
 
