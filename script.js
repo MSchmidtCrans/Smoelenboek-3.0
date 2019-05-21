@@ -11,9 +11,12 @@ $(document).ready(function(){
     let strFirstLtr = data.lastName.charAt(0);
     
     data.gender == "man" ? indexCardClass += " man": indexCardClass += " woman";
-    if (strFirstLtr == "s" | "S") {indexCardClass += "jTotr"};
+    if (strFirstLtr == "s" | strFirstLtr == "S") {indexCardClass += " sTotz"};
 
-    $("#cards").append('<div class=' + indexCardClass + '>' + '<div class="persInfo">' + 'test' + '</div></div>');
+    console.log(indexCardClass);
+
+    $("#cards").append('<div class="' + indexCardClass + '"><div class="persInfo">' + '<p>Naam: ' + data.firstName
+                        + ' ' + data.lastName + '</br>Woonplaats: ' + data.city + ' </br>Geslacht: ' + data.gender + '</p></div></div>');
   });
   }
 
