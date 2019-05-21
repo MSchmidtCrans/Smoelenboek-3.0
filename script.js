@@ -7,14 +7,17 @@ $(document).ready(function(){
   function indexPull() {
   $.get("http://10.1.254.102/Smoelenboek-3.0/smoelDataPull.php", function(data, status){
 
+   //Set variables
     let indexCardClass = "indexKaart";
     let strFirstLtr = data.lastName.charAt(0);
     
+    //Check for class  values and set accordingly
     data.gender == "man" ? indexCardClass += " man": indexCardClass += " woman";
-    if (strFirstLtr == "s" | strFirstLtr == "S") {indexCardClass += " sTotz"};
-
-    console.log(indexCardClass);
-
+    if (strFirstLtr.match(/[a-i]/i)){indexCardClass += " aToti"};
+    if (strFirstLtr.match(/[j-r]/i)){indexCardClass += " jTotr"};
+    if (strFirstLtr.match(/[s-z]/i)){indexCardClass += " sTotz"};
+   
+    //Create new div and insert into DOM
     $("#cards").append('<div class="' + indexCardClass + '"><div class="persInfo">' + '<p>Naam: ' + data.firstName
                         + ' ' + data.lastName + '</br>Woonplaats: ' + data.city + ' </br>Geslacht: ' + data.gender + '</p></div></div>');
   });
@@ -82,7 +85,6 @@ $(document).ready(function(){
 
          //Continue button filtering
         if ($(".manBtn").css("background-color") == "rgb(255, 0, 0)") {
-             console.log("man");
             reslijst = reslijst.filter(".man");
         }
         if ($(".vrouwBtn").css("background-color") == "rgb(255, 0, 0)") {
