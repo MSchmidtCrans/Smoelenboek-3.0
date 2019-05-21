@@ -23,7 +23,7 @@
 .cards {
   grid-area: cards;
   justify-content: start;
-  .float: left;
+  float: left;
 }
 
 header {
@@ -40,6 +40,7 @@ Header h1 {
 
 
 .indexKaart {
+    display: inline-block;
     background-color: #e6ffff;
     width: 350px;
     height: 120px;
