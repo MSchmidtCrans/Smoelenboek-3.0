@@ -49,6 +49,10 @@ Header h1 {
     margin: 5px;
 }
 
+.indexKaart:hover {
+    cursor: pointer;
+}
+
 .persInfo {
     text-align: left;
     line-height: 1.6;

@@ -16,7 +16,7 @@ $(document).ready(function(){
     cloak(".genderIndex");  
 
     //Trigger event handler
-    $("button").click(function(){
+    $(".button").click(function(){
 
         //Hide all cards
         cloak(".indexKaart");

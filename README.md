@@ -41,5 +41,6 @@ New Branch 'Use backend to pull index card data':
 
 7. Check if the PHP script accepts the new array -DONE-
 
-7. Adapt JS to itterate through more then one entrie from backend. -DONE-
+8. Adapt JS to itterate through more then one entrie from backend. -DONE-
 
+9. Clean up JS and adapt CSS for responsiveness -DONE-
