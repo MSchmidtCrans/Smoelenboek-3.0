@@ -3,45 +3,23 @@
 
 $(document).ready(function(){
 
-  //Call a php script to collect data from backend
-  function indexPull() {
-  $.get("http://10.1.254.102/Smoelenboek-3.0/smoelDataPull.php", function(data, status){
-
-    let indexCardClass = "indexKaart";
-    let strFirstLtr = data.lastName.charAt(0);
-    
-    data.gender == "man" ? indexCardClass += " man": indexCardClass += " woman";
-    if (strFirstLtr == "s" | strFirstLtr == "S") {indexCardClass += " sTotz"};
-
-    console.log(indexCardClass);
-
-    $("#cards").append('<div class="' + indexCardClass + '"><div class="persInfo">' + '<p>Naam: ' + data.firstName
-                        + ' ' + data.lastName + '</br>Woonplaats: ' + data.city + ' </br>Geslacht: ' + data.gender + '</p></div></div>');
-  });
-  }
-
+  //Call data pull function
   indexPull();
+  
 
-
-
-/*script for hiding/showing indexcards
+   /*script for hiding/showing indexcards
     Cards will only appear after a filter is applied
     A alpabatical filter needs to be applied before
     you can filter based on gender*/
 
-    //Hide all cards until a filter is applied
-    $(".indexKaart").hide();
-    $(".genderIndex").hide();
-
-    
+    //Hide filter buttons until a filter is applied
+    cloak(".genderIndex");  
 
     //Trigger event handler
-    $("button").click(function(){
+    $(".button").click(function(){
 
         //Hide all cards
-        $(".indexKaart").hide();
-
-
+        cloak(".indexKaart");
 
         //Make or unmake buttoncolor red (=active) upon click event
         if($(this).css("background-color") == "rgb(255, 0, 0)") {
@@ -75,14 +53,13 @@ $(document).ready(function(){
 
          //Only show the genderfilter when a alpabatical filter has been selected
          if (x < 1) {
-            $(".genderIndex").hide();
+            cloak(".genderIndex");
               } else {
             $(".genderIndex").show();
          }
 
          //Continue button filtering
         if ($(".manBtn").css("background-color") == "rgb(255, 0, 0)") {
-             console.log("man");
             reslijst = reslijst.filter(".man");
         }
         if ($(".vrouwBtn").css("background-color") == "rgb(255, 0, 0)") {
@@ -93,4 +70,35 @@ $(document).ready(function(){
         if (reslijst != null)
           reslijst.show();
     });
+
+  //Call a php script to collect data from backend
+  function indexPull() {
+   $.get("http://10.1.254.102/Smoelenboek-3.0/smoelDataPull.php", function(data, status){
+ 
+   //Iterate through the JSON array for all entries
+   for (x in data) {
+ 
+    //Set variables
+     let indexCardClass = "indexKaart";
+     let strFirstLtr = data[x].lastName.charAt(0);
+     
+     //Check for class values and set accordingly
+     data[x].gender == "man" ? indexCardClass += " man": indexCardClass += " vrouw";
+     if (strFirstLtr.match(/[a-i]/i)){indexCardClass += " aToti"};
+     if (strFirstLtr.match(/[j-r]/i)){indexCardClass += " jTotr"};
+     if (strFirstLtr.match(/[s-z]/i)){indexCardClass += " sTotz"};
+    
+     //Create new div and insert into DOM
+     $("#cards").append('<div class="' + indexCardClass + '"><div class="persInfo">' + '<p>Naam: ' + data[x].firstName
+                         + ' ' + data[x].lastName + '</br>Woonplaats: ' + data[x].city + ' </br>Geslacht: ' + data[x].gender + '</p></div></div>');
+      
+      //Hide cards until filter is applied
+      cloak(".indexKaart");   
+                        }
+    });
+   }
+
+   function cloak(val) {
+      $(val).hide();
+   }
 });

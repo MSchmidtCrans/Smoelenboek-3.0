@@ -10,7 +10,6 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="script.js"></script>
 
-
 </head>
 
 <body>
@@ -18,41 +17,25 @@
     <Header>
     <h1>Smoelenboek Index</h1>
     </Header>
+      <div class="nav">
+        <div class="alphabetIndex">
+          <p style="width: 180px; display: inline-block;">1. Filter op alfabet</p><br>
+          <button class="aTotiCheck button">A tot I</button>
+          <button class="jTotrCheck button">J tot R</button>
+          <button class="sTotzCheck button">S tot Z</button><br><br>
+        </div>
 
-<div class="nav">
+        <div class="genderIndex">
+          <p style="width: 180px; display: inline-block;">2. Filter op geslacht</p><br>
+          <button class="manBtn button">Man</button>
+          <button class="vrouwBtn button">Vrouw</button>
+        </div>
+      </div>
 
-<div class="alphabetIndex">
-<p style="width: 180px; display: inline-block;">1. Filter op alfabet</p><br>
-<button class="aTotiCheck">A tot I</button>
-<button class="jTotrCheck">J tot R</button>
-<button class="sTotzCheck">S tot Z</button><br><br>
-</div>
+      <div class="cards" id="cards"></div>
 
-<div class="genderIndex">
-<p style="width: 180px; display: inline-block;">2. Filter op geslacht</p><br>
-<button class="manBtn">Man</button>
-<button class="vrouwBtn">Vrouw</button>
-</div>
+  </div>
 
-</div>
-<div class="cards" id="cards">
-
-          <div class="indexKaart aToti man">            
-                <div class="persInfo">
-                  <p>Naam: Henk proef<br>
-                  Woonplaats: Leeuwarden<br>
-                  Geslacht: man</p>
-                </div>
-          </div>
-
-         <div class="indexKaart sTotz vrouw">           
-            <div class="persInfo">
-                    <p>Naam: Sarah proef<br>
-                    Woonplaats: Leeuwarden<br>
-                    Geslacht: vrouw</p>
-            </div>
-         </div>
-       </div>
-</div>
 </body>
+
 </html>
