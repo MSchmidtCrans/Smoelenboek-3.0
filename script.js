@@ -7,12 +7,14 @@ $(document).ready(function(){
   function indexPull() {
   $.get("http://10.1.254.102/Smoelenboek-3.0/smoelDataPull.php", function(data, status){
 
+  console.log(data);
+  
    //Set variables
     let indexCardClass = "indexKaart";
     let strFirstLtr = data.lastName.charAt(0);
     
     //Check for class  values and set accordingly
-    data.gender == "man" ? indexCardClass += " man": indexCardClass += " woman";
+    data.gender == "man" ? indexCardClass += " man": indexCardClass += " vrouw";
     if (strFirstLtr.match(/[a-i]/i)){indexCardClass += " aToti"};
     if (strFirstLtr.match(/[j-r]/i)){indexCardClass += " jTotr"};
     if (strFirstLtr.match(/[s-z]/i)){indexCardClass += " sTotz"};

@@ -36,7 +36,9 @@ New Branch 'Use backend to pull index card data':
 
 5. Adapt original JS with AJAX-JQuery to receive JSON data from backend -DONE-
 
-6. Extend test text file with more entries 
+6. Extend test text file with more entries -DONE-
+
+7. Check if the PHP script accepts the new array -DONE-
 
 7. Adapt JS to itterate through more then one entrie from backend.
 
