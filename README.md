@@ -1,6 +1,8 @@
 # Smoelenboek-3.0
 Based on prior exercises in Codegorilla - This version includes simple jQuery filtering and a Grid lay-out.
 
+Demo page: (Momentarily not working because of use of local Db in a local virtual machine.) https://mschmidtcrans.github.io/Smoelenboek-3.0/
+
 Used techniques :
 CSS (grid)
 HTML
@@ -9,6 +11,7 @@ PHP
 AJAX
 Javascript
 
+Initial setup:
 
 1. Setup repo on GitHub and local station - DONE
 
@@ -31,5 +34,9 @@ New Branch 'Use backend to pull index card data':
 
 4. Show decoded JSON on test html Page -DONE-
 
-5. Adapt original JS with AJAX to receive JSON data from backend
+5. Adapt original JS with AJAX-JQuery to receive JSON data from backend -DONE-
+
+6. Extend test text file with more entries 
+
+7. Adapt JS to itterate through more then one entrie from backend.
 
