@@ -5,10 +5,10 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="X-UA-Compatible" content="ie=edge">
-<link rel="stylesheet" type="text/css" href="stylesheet.css">
 <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="script.js"></script>
+<link rel="stylesheet" type="text/css" href="stylesheet.css">
 
 </head>
 
@@ -16,7 +16,24 @@
   <div class="mainContainer">
     <Header>
     <h1>Smoelenboek Index</h1>
+    <p><h2 style="color: white">Add Address<img src="plus.png" class="plusImg" alt="plus sign" onclick="document.getElementById('dataEntry').style.display='block'"></h2></p>
     </Header>
+
+    <div id="dataEntry" class="dataFields" style="display: none;">
+      <form action="create.php" method="post">
+        <label for="input1">First Name: </label>
+                <input id="input1" type="text" name="firstName">
+        <label for="input2">Last Name: </label>
+                <input id="input2" type="text" name="lastName">
+        <label for="input4">City: </label>
+                <input id="input4" type="text" name="city">
+                <input id="input3" type="radio" name="gender" value="man" checked>Man
+                <input type="radio" name="gender" value="vrouw">Vrouw
+                <img src="save.png" class="saveImg" alt="plus sign" onclick="">
+                <img src="cancel.png" class="cancelImg" alt="plus sign" onclick="document.getElementById('dataEntry').style.display='none'">
+              </form>
+    </div>
+
       <div class="nav">
         <div class="alphabetIndex">
           <p style="width: 180px; display: inline-block;">1. Filter op alfabet</p><br>
