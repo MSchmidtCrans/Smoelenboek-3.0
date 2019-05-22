@@ -1,6 +1,7 @@
 # Smoelenboek-3.0
 Based on prior exercises in Codegorilla - This version includes simple jQuery filtering and a Grid lay-out.
 Update: Added backend functionality to pull data
+Update: Add create, delete and edit functionality
 
 Demo page: (Momentarily not working because of use of local Db in a local virtual machine.) https://mschmidtcrans.github.io/Smoelenboek-3.0/
 
@@ -12,7 +13,7 @@ PHP
 AJAX
 Javascript
 
-Initial setup:
+<b>Initial setup:</b>
 
 1. Setup repo on GitHub and local station - DONE
 
@@ -25,7 +26,7 @@ Initial setup:
 5. Publish on GitHub
 
 
-New Branch 'Use backend to pull index card data':
+<b>New Branch 'Use backend to pull index card data':</b>
 
 1. Create test .txt file -DONE-
 
@@ -44,3 +45,31 @@ New Branch 'Use backend to pull index card data':
 8. Adapt JS to itterate through more then one entrie from backend. -DONE-
 
 9. Clean up JS and adapt CSS for responsiveness -DONE-
+
+<b>New Branch 'Add create, delete and edit functionality'</b>
+
+1. Make create address button in Header
+    a. Make a div to display entry fields
+    b. Use css to hide/show entry fields
+
+2. Connect button with PHP script
+
+3. Create PHP script to create new record in database
+
+4. Display new record correctly in html
+
+5. Make delete address button on address div
+
+6. Connect button with PHP script
+
+7. Create PHP script to delete record in database
+
+8. Remove new record correctly in html
+
+9. Make edit address button on address div
+
+10. Connect button with PHP script
+
+11. Create PHP script to update record in database
+
+12. Display updated record correctly in html

@@ -8,9 +8,10 @@
 .mainContainer {
   display: grid;
   grid-template-columns: 275px auto;
-  grid-template-rows: auto 1fr;
+  grid-template-rows: auto auto 1fr;
   grid-template-areas:
   "header header"
+  "data data"
   "nav cards"
 }
 
@@ -33,11 +34,36 @@ header {
     text-align: center;
 }
 
+.dataFields {
+    grid-area: data;
+    
+}
+
+.plusImg {
+    position: relative;
+    width: 35px;
+    height: 35px;
+    transition: 0.2s;
+}
+
+.cancelImg {
+    position: relative;
+    
+    width: 60px;
+    height: 60px;
+    transition: 0.2s;
+}
+
+.saveImg {
+    width: 60px;
+    height: 60px;
+    transition: 0.2s;
+}
+
 Header h1 {
     font-size: 50px;
     color: white;
 }
-
 
 .indexKaart {
     display: inline-block;
