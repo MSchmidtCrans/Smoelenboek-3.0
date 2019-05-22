@@ -73,23 +73,27 @@ $(document).ready(function(){
 
     $(".saveImg").click(function(){
       let x= $("#dataForm" ).serializeArray();
-       console.log(x);
-       $.ajax({
+       x = JSON.stringify(x);
+
+         //Sent JSON to php script
+         $.ajax({
  
-         // The URL for the request
          url: "create.php",
-      
-         // The data to send (will be converted to a query string)
-         data: {
-             id: 123
-         },
-      
-         // Whether this is a POST or GET request
-         type: "GET",
-      
-         // The type of data we expect back
-         dataType : "json",
+         data: {myJson: x},
+         type: "POST",
+         dataType : "JSON",
+
+         //Upon succes
+         success: function(result) { 
+            console.log(result) ;
+            console.log('SUCCES')},
+            
+         error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+        }  
+         
      })
+     
     });
 
     //Reset data entry fields on click cancel btn
