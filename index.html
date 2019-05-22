@@ -16,11 +16,11 @@
   <div class="mainContainer">
     <Header>
     <h1>Smoelenboek Index</h1>
-    <p><h2 style="color: white">Add Address<img src="plus.png" class="plusImg" alt="plus sign" onclick="document.getElementById('dataEntry').style.display='block'"></h2></p>
+    <h2 style="color: white">Add Address<img src="plus.png" class="plusImg" alt="plus sign" onclick="document.getElementById('dataEntry').style.display='block'"></h2>
     </Header>
 
     <div id="dataEntry" class="dataFields" style="display: none;">
-      <form action="create.php" method="post">
+      <form action="#">
         <label for="input1">First Name: </label>
                 <input id="input1" type="text" name="firstName">
         <label for="input2">Last Name: </label>
@@ -29,9 +29,10 @@
                 <input id="input4" type="text" name="city">
                 <input id="input3" type="radio" name="gender" value="man" checked>Man
                 <input type="radio" name="gender" value="vrouw">Vrouw
-                <img src="save.png" class="saveImg" alt="plus sign" onclick="">
-                <img src="cancel.png" class="cancelImg" alt="plus sign" onclick="document.getElementById('dataEntry').style.display='none'">
-              </form>
+        </form>    
+             <img src="save.png" class="saveImg" alt="plus sign" onclick="">
+             <img src="cancel.png" class="cancelImg" alt="plus sign">
+
     </div>
 
       <div class="nav">

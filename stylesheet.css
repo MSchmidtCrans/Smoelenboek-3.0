@@ -12,7 +12,7 @@
   grid-template-areas:
   "header header"
   "data data"
-  "nav cards"
+  "nav cards";
 }
 
 .nav {
@@ -35,8 +35,9 @@ header {
 }
 
 .dataFields {
+    border: solid 1px blue;
     grid-area: data;
-    
+    padding: 25px 0;
 }
 
 .plusImg {
@@ -48,16 +49,23 @@ header {
 
 .cancelImg {
     position: relative;
-    
     width: 60px;
     height: 60px;
     transition: 0.2s;
+}
+
+.cancelImg:hover {
+    box-shadow: 5px 5px 5px grey;
 }
 
 .saveImg {
     width: 60px;
     height: 60px;
     transition: 0.2s;
+}
+
+.saveImg:hover {
+    box-shadow: 5px 5px 5px grey;
 }
 
 Header h1 {

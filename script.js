@@ -71,9 +71,24 @@ $(document).ready(function(){
           reslijst.show();
     });
 
+    $(".saveImg").click(function(){
+       alert();
+    });
+
+    $(".cancelImg").click(function(){
+      $("#input1").val("");
+      $("#input2").val("");
+      $("input[name='gender']").prop('checked', false);
+      $("#input4").val("");
+      alert($("#input1").val());
+   });
+
+
+
+
   //Call a php script to collect data from backend
   function indexPull() {
-   $.get("http://10.1.254.102/Smoelenboek-3.0/PHP_JSON.php", function(data, status){
+   $.get("http://192.168.2.40/Smoelenboek-3.0/PHP_JSON.php", function(data, status){
  
    //Iterate through the JSON array for all entries
    for (x in data) {
