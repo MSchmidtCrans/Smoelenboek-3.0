@@ -72,15 +72,33 @@ $(document).ready(function(){
     });
 
     $(".saveImg").click(function(){
-       alert();
+      let x= $("#dataForm" ).serializeArray();
+       console.log(x);
+       $.ajax({
+ 
+         // The URL for the request
+         url: "create.php",
+      
+         // The data to send (will be converted to a query string)
+         data: {
+             id: 123
+         },
+      
+         // Whether this is a POST or GET request
+         type: "GET",
+      
+         // The type of data we expect back
+         dataType : "json",
+     })
     });
 
+    //Reset data entry fields on click cancel btn
     $(".cancelImg").click(function(){
       $("#input1").val("");
       $("#input2").val("");
       $("input[name='gender']").prop('checked', false);
       $("#input4").val("");
-      alert($("#input1").val());
+      $("#dataEntry").css("display", "none");
    });
 
 
