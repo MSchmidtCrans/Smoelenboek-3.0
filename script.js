@@ -73,9 +73,7 @@ $(document).ready(function(){
 
   //Call a php script to collect data from backend
   function indexPull() {
-   $.get("http://10.1.254.102/My-first-SQL-DB-with-PHP-and-PDO/myPHP_JSON.php", function(data, status){
-       
-    console.log(data);
+   $.get("http://10.1.254.102/Smoelenboek-3.0/PHP_JSON.php", function(data, status){
  
    //Iterate through the JSON array for all entries
    for (x in data) {

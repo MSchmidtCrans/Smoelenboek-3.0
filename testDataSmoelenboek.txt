@@ -1,8 +1,0 @@
-[{ "firstName":"Michael", "lastName":"Schmidt Crans", "city": "Leeuwarden", "gender": "man" },
-{ "firstName":"Ivo", "lastName": "Jongmans", "city": "Groningen", "gender": "man" },
-{ "firstName":"Jeroen", "lastName":"de Reus", "city": "Groningen", "gender": "man" },
-{ "firstName":"Tamara", "lastName":"Schmidt Crans", "city": "Leeuwarden", "gender": "vrouw" },
-{ "firstName":"Michael", "lastName":"Schmidt Crans", "city": "Leeuwarden", "gender": "man" },
-{ "firstName":"Ivo", "lastName": "Jongmans", "city": "Groningen", "gender": "man" },
-{ "firstName":"Jeroen", "lastName":"de Reus", "city": "Groningen", "gender": "man" },
-{ "firstName":"Tamara", "lastName":"Schmidt Crans", "city": "Leeuwarden", "gender": "vrouw" }]
