@@ -73,14 +73,16 @@ $(document).ready(function(){
 
   //Call a php script to collect data from backend
   function indexPull() {
-   $.get("http://10.1.254.102/Smoelenboek-3.0/smoelDataPull.php", function(data, status){
+   $.get("http://10.1.254.102/My-first-SQL-DB-with-PHP-and-PDO/myPHP_JSON.php", function(data, status){
+       
+    console.log(data);
  
    //Iterate through the JSON array for all entries
    for (x in data) {
- 
+    
     //Set variables
      let indexCardClass = "indexKaart";
-     let strFirstLtr = data[x].lastName.charAt(0);
+     let strFirstLtr = data[x].lastname.charAt(0);
      
      //Check for class values and set accordingly
      data[x].gender == "man" ? indexCardClass += " man": indexCardClass += " vrouw";
@@ -89,12 +91,12 @@ $(document).ready(function(){
      if (strFirstLtr.match(/[s-z]/i)){indexCardClass += " sTotz"};
     
      //Create new div and insert into DOM
-     $("#cards").append('<div class="' + indexCardClass + '"><div class="persInfo">' + '<p>Naam: ' + data[x].firstName
-                         + ' ' + data[x].lastName + '</br>Woonplaats: ' + data[x].city + ' </br>Geslacht: ' + data[x].gender + '</p></div></div>');
-      
-      //Hide cards until filter is applied
-      cloak(".indexKaart");   
-                        }
+     $("#cards").append('<div class="' + indexCardClass + '"><div class="persInfo">' + '<p>Naam: ' + data[x].firstname
+                         + ' ' + data[x].lastname + '</br>Woonplaats: ' + data[x].city + ' </br>Geslacht: ' + data[x].gender + '</p></div></div>');
+       }
+       
+       //Hide cards until filter is applied
+      cloak(".indexKaart");  
     });
    }
 
