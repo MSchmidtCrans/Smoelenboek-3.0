@@ -22,17 +22,17 @@ try {
     $adressquery->execute();
 
     //Set array
-    $persons = array();
+    $person = array();
     
     //Loop through all rows from table
     foreach($adressquery as $item) {   
 
-    //Add person array to persons array (2-dimensional)
-    $persons = $item;
+    //Add person array
+    $person = $item;
     }
 
     //Sent array as JSON
-    echo json_encode($persons);
+    echo json_encode($person);
 
     }
 catch(PDOException $e)

@@ -155,6 +155,7 @@ $(document).ready(function(){
 
    //RESET FORM FIELDS
    function resetFormFields () {
+      $("#id").val("");
       $("#input1").val("");
       $("#input2").val("");
       $("input[name='gender']").prop('checked', false);
