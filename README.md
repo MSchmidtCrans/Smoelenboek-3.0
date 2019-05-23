@@ -48,11 +48,12 @@ Javascript
 
 <b>New Branch 'Add create, delete and edit functionality'</b>
 
-1. Make create address button in Header
+1. Make create address button in Header -DONE-
     a. Make a div to display entry fields
     b. Use css to hide/show entry fields
+    c. Reset fields upon cancel and close data entry div
 
-2. Connect button with PHP script
+2. Connect button with PHP script -DONE-
 
 3. Create PHP script to create new record in database
 

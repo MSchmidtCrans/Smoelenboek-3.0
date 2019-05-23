@@ -71,9 +71,46 @@ $(document).ready(function(){
           reslijst.show();
     });
 
+    $(".saveImg").click(function(){
+      let x= $("#dataForm" ).serializeArray();
+       x = JSON.stringify(x);
+
+         //Sent JSON to php script
+         $.ajax({
+ 
+         url: "create.php",
+         data: {myJson: x},
+         type: "POST",
+         dataType : "JSON",
+
+         //Upon succes
+         success: function(result) { 
+            console.log(result) ;
+            console.log('SUCCES')},
+            
+         error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+        }  
+         
+     })
+     
+    });
+
+    //Reset data entry fields on click cancel btn
+    $(".cancelImg").click(function(){
+      $("#input1").val("");
+      $("#input2").val("");
+      $("input[name='gender']").prop('checked', false);
+      $("#input4").val("");
+      $("#dataEntry").css("display", "none");
+   });
+
+
+
+
   //Call a php script to collect data from backend
   function indexPull() {
-   $.get("http://10.1.254.102/Smoelenboek-3.0/PHP_JSON.php", function(data, status){
+   $.get("http://192.168.2.40/Smoelenboek-3.0/PHP_JSON.php", function(data, status){
  
    //Iterate through the JSON array for all entries
    for (x in data) {
