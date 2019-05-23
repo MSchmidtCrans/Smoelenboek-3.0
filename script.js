@@ -115,10 +115,32 @@ $(document).ready(function(){
     //Call card values to form values upon clicking a address card
     $(document).on('click','.indexKaart',function(){
 
-       console.log(this);
        console.log(this.id);
+
+      //Get data from database with ajax call
+      $.ajax({
+         url: "search.php",
+         data: {id: this.id},
+         type: "POST",
+         dataType : "JSON",
+
+         //Upon succes
+         success: function(result) { 
+            console.log(result);
+            
+         if (result) {console.log("SUCCES")};
+         },
+
+         //Upon error
+         error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+        }  
+     })
+
       //Display hidden form 
       $("#dataEntry").css("display", "block");
+
+      
     });
 
 
