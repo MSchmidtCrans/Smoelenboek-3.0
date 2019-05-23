@@ -81,7 +81,6 @@ $(document).ready(function(){
 			let element = x[i];
 			let name = element.name;
 			let value = element.value;
-
 			if( name ) {
 				obj[name] = value;
 			}
@@ -105,6 +104,8 @@ $(document).ready(function(){
             indexPull();
          if (result) {console.log("SUCCES")};
          },
+
+         //Upon error
          error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
         }  
@@ -132,7 +133,7 @@ $(document).ready(function(){
    //Iterate through the JSON array for all entries
    for (x in data) {
     
-    //Set letiables
+    //Set variables
      let indexCardClass = "indexKaart";
      let strFirstLtr = data[x].lastname.charAt(0);
      
@@ -143,11 +144,12 @@ $(document).ready(function(){
      if (strFirstLtr.match(/[s-z]/i)){indexCardClass += " sTotz"};
     
      //Create new div and insert into DOM
-     $("#cards").append('<div class="' + indexCardClass + '"><div class="persInfo">' + '<p>Naam: ' + data[x].firstname
+     $("#cards").append('<div class="' + indexCardClass + '"><div class="persInfo"><p>ID: '+ data[x].id + '</br>Naam: ' + data[x].firstname
                          + ' ' + data[x].lastname + '</br>Woonplaats: ' + data[x].city + ' </br>Geslacht: ' + data[x].gender + '</p></div></div>');
        }
        
        //Hide cards until filter is applied
+      //
       cloak(".indexKaart");  
     });
    }
