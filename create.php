@@ -5,6 +5,7 @@ header('Content-type: application/json; charset=utf-8');
 $myJson=$_POST['myJson'];
 //$obj = ($_GET["x"], false);
 
+
 echo($myJson);
 
 

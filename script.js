@@ -28,13 +28,13 @@ $(document).ready(function(){
             $(this).css("background-color", "rgb(255,0,0)");
         }
 
-        //Store all indexcards in one variable
+        //Store all indexcards in one letiable
         mijnLijst = $('.indexKaart');
 
-        //Declare a variable to collect filtered indexcards based on active/inactive button
+        //Declare a letiable to collect filtered indexcards based on active/inactive button
         reslijst = $();
 
-        //Declare a variable to hide/show genderfilter (userfriendly)
+        //Declare a letiable to hide/show genderfilter (userfriendly)
         x = 0;
 
         //Filter through all buttons to check button color (red=active)
@@ -73,19 +73,33 @@ $(document).ready(function(){
 
     $(".saveImg").click(function(){
       let x= $("#dataForm" ).serializeArray();
-       x = JSON.stringify(x);
-
+      
+      //Clean up form array to nice JSON
+      let obj = {};
+      for( let i = 0; i < x.length; ++i ) {
+			let element = x[i];
+			let name = element.name;
+			let value = element.value;
+			if( name ) {
+				obj[name] = value;
+			}
+		}
+      
+      //Make new obj into JSON
+      console.log(obj);
+	
          //Sent JSON to php script
          $.ajax({
  
          url: "create.php",
-         data: {myJson: x},
+         data: {myJson: JSON.stringify(obj)},
          type: "POST",
          dataType : "JSON",
 
          //Upon succes
          success: function(result) { 
-            console.log(result) ;
+            console.log(result);
+            console.log(result.firstName)
             console.log('SUCCES')},
             
          error: function(XMLHttpRequest, textStatus, errorThrown) { 
@@ -110,12 +124,12 @@ $(document).ready(function(){
 
   //Call a php script to collect data from backend
   function indexPull() {
-   $.get("http://192.168.2.40/Smoelenboek-3.0/PHP_JSON.php", function(data, status){
+   $.get("http://10.1.254.102/Smoelenboek-3.0/PHP_JSON.php", function(data, status){
  
    //Iterate through the JSON array for all entries
    for (x in data) {
     
-    //Set variables
+    //Set letiables
      let indexCardClass = "indexKaart";
      let strFirstLtr = data[x].lastname.charAt(0);
      
