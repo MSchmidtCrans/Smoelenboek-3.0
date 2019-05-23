@@ -71,7 +71,7 @@ $(document).ready(function(){
           reslijst.show();
     });
 
-    //Call function when clicking the save btn/img
+    //Call save function when clicking the save btn/img
     $(".saveImg").click(function(){
 
       //Put form values in array
@@ -112,6 +112,15 @@ $(document).ready(function(){
      })
     });
 
+    //Call card values to form values upon clicking a address card
+    $(document).on('click','.indexKaart',function(){
+
+       console.log(this);
+       console.log(this.id);
+      //Display hidden form 
+      $("#dataEntry").css("display", "block");
+    });
+
 
     //----------FUNCTION DECLARATIONS---------
 
@@ -148,7 +157,7 @@ $(document).ready(function(){
      if (strFirstLtr.match(/[s-z]/i)){indexCardClass += " sTotz"};
     
      //Create new div and insert into DOM
-     $("#cards").append('<div class="' + indexCardClass + '"><div class="persInfo"><p>ID: '+ data[x].id + '</br>Naam: ' + data[x].firstname
+     $("#cards").append('<div id="' + data[x].id + '" class="' + indexCardClass + '"><div class="persInfo"><p>ID: '+ data[x].id + '</br>Naam: ' + data[x].firstname
                          + ' ' + data[x].lastname + '</br>Woonplaats: ' + data[x].city + ' </br>Geslacht: ' + data[x].gender + '</p></div></div>');
        }
     });

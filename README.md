@@ -65,7 +65,13 @@ Javascript
 4. Display new record correctly in html -DONE-
     a. Start new data pull
     b. Create form reset function
-    b. Reset data entry fields
+    c. Reset data entry fields
+
+5. Upon selecting address card display all card values in form entry fields for followup functions: delete and edit.
+    a. Add unique id field to form data entry
+    b. Create click event in Jquery to get unique id
+    c. Use id to search database with ajax call on php search script
+    d. Display database values in form fields
 
 5. Make delete address button on address div
 
