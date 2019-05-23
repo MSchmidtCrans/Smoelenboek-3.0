@@ -74,34 +74,37 @@ $(document).ready(function(){
     $(".saveImg").click(function(){
       let x= $("#dataForm" ).serializeArray();
       
+      
       //Clean up form array to nice JSON
       let obj = {};
       for( let i = 0; i < x.length; ++i ) {
 			let element = x[i];
 			let name = element.name;
 			let value = element.value;
+
 			if( name ) {
 				obj[name] = value;
 			}
 		}
       
       //Make new obj into JSON
-      console.log(obj);
+      //y = JSON.stringify(obj);
+      console.log(x);
 	
          //Sent JSON to php script
          $.ajax({
- 
          url: "create.php",
          data: {myJson: JSON.stringify(obj)},
          type: "POST",
-         dataType : "JSON",
+         dataType : "TEXT",
 
          //Upon succes
          success: function(result) { 
+            //console.log(result.firstName);
             console.log(result);
-            console.log(result.firstName)
-            console.log('SUCCES')},
-            
+            indexPull();
+         if (result) {console.log("SUCCES")};
+         },
          error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
         }  

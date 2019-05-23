@@ -59,6 +59,7 @@ Javascript
     c. Check communication with ajax calls
 
 3. Create PHP script to create new record in database
+    a. Test DB insert with plain data
 
 4. Display new record correctly in html
 
