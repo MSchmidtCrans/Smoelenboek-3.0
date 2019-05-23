@@ -54,6 +54,9 @@ Javascript
     c. Reset fields upon cancel and close data entry div
 
 2. Connect button with PHP script -DONE-
+    a. Put form data in array
+    b. Transform from array into clean json object
+    c. Check communication with ajax calls
 
 3. Create PHP script to create new record in database
 
