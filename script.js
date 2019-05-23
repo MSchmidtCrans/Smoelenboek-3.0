@@ -28,13 +28,13 @@ $(document).ready(function(){
             $(this).css("background-color", "rgb(255,0,0)");
         }
 
-        //Store all indexcards in one letiable
+        //Store all indexcards in one variable
         mijnLijst = $('.indexKaart');
 
-        //Declare a letiable to collect filtered indexcards based on active/inactive button
+        //Declare a variable to collect filtered indexcards based on active/inactive button
         reslijst = $();
 
-        //Declare a letiable to hide/show genderfilter (userfriendly)
+        //Declare a variable to hide/show genderfilter (userfriendly)
         x = 0;
 
         //Filter through all buttons to check button color (red=active)
@@ -71,7 +71,10 @@ $(document).ready(function(){
           reslijst.show();
     });
 
+    //Call function when clicking the save btn/img
     $(".saveImg").click(function(){
+
+      //Put form values in array
       let x= $("#dataForm" ).serializeArray();
       
       
@@ -85,10 +88,6 @@ $(document).ready(function(){
 				obj[name] = value;
 			}
 		}
-      
-      //Make new obj into JSON
-      //y = JSON.stringify(obj);
-      console.log(x);
 	
          //Sent JSON to php script
          $.ajax({
@@ -110,16 +109,18 @@ $(document).ready(function(){
          error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
         }  
-         
      })
-     
     });
+
+
+    //----------FUNCTION DECLARATIONS---------
 
     //Reset data entry fields on click cancel btn
     $(".cancelImg").click(function(){
       resetFormFields();
    });
 
+   //RESET FORM FIELDS
    function resetFormFields () {
       $("#input1").val("");
       $("#input2").val("");
@@ -129,7 +130,7 @@ $(document).ready(function(){
    }
 
 
-  //Call a php script to collect data from backend
+  //COLLECT ALL ADDRESS CARDS FROM DATABASE
   function indexPull() {
    $.get("http://10.1.254.102/Smoelenboek-3.0/PHP_JSON.php", function(data, status){
  
@@ -150,13 +151,10 @@ $(document).ready(function(){
      $("#cards").append('<div class="' + indexCardClass + '"><div class="persInfo"><p>ID: '+ data[x].id + '</br>Naam: ' + data[x].firstname
                          + ' ' + data[x].lastname + '</br>Woonplaats: ' + data[x].city + ' </br>Geslacht: ' + data[x].gender + '</p></div></div>');
        }
-       
-       //Hide cards until filter is applied
-      //
-      //cloak(".indexKaart");  
     });
    }
 
+   //HIDE DIV BASED IN VAL
    function cloak(val) {
       $(val).hide();
    }
