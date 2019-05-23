@@ -102,6 +102,7 @@ $(document).ready(function(){
             //console.log(result.firstName);
             console.log(result);
             indexPull();
+            resetFormFields();
          if (result) {console.log("SUCCES")};
          },
 
@@ -116,14 +117,16 @@ $(document).ready(function(){
 
     //Reset data entry fields on click cancel btn
     $(".cancelImg").click(function(){
+      resetFormFields();
+   });
+
+   function resetFormFields () {
       $("#input1").val("");
       $("#input2").val("");
       $("input[name='gender']").prop('checked', false);
       $("#input4").val("");
-      $("#dataEntry").css("display", "none");
-   });
-
-
+      $("#dataEntry").css("display", "none"); 
+   }
 
 
   //Call a php script to collect data from backend
@@ -150,7 +153,7 @@ $(document).ready(function(){
        
        //Hide cards until filter is applied
       //
-      cloak(".indexKaart");  
+      //cloak(".indexKaart");  
     });
    }
 

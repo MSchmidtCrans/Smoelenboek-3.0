@@ -58,10 +58,14 @@ Javascript
     b. Transform from array into clean json object
     c. Check communication with ajax calls
 
-3. Create PHP script to create new record in database
+3. Create PHP script to create new record in database -DONE-
     a. Test DB insert with plain data
+    b. Add variables to SQL insert statement
 
-4. Display new record correctly in html
+4. Display new record correctly in html -DONE-
+    a. Start new data pull
+    b. Create form reset function
+    b. Reset data entry fields
 
 5. Make delete address button on address div
 
