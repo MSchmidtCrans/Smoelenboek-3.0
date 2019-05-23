@@ -28,8 +28,7 @@ try {
     foreach($adressquery as $item) {   
 
     //Add person array to persons array (2-dimensional)
-    $x = $item[id] - 1;
-    $persons[$x] = $item;
+    $persons = $item;
     }
 
     //Sent array as JSON

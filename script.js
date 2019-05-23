@@ -127,8 +127,10 @@ $(document).ready(function(){
          //Upon succes
          success: function(result) { 
             console.log(result);
+            console.log(result);
+            storeData(result);
             
-         if (result) {console.log("SUCCES")};
+            if (result) {console.log("SUCCES")};
          },
 
          //Upon error
@@ -160,6 +162,15 @@ $(document).ready(function(){
       $("#dataEntry").css("display", "none"); 
    }
 
+
+      //STORE DATA IN FORM FIELDS
+      function storeData(res) {
+         $("#id").val(res.id);
+         $("#input1").val(res.firstname);
+         $("#input2").val(res.lastname);
+         res.gender == "man" ?  $("input[id='input3']").prop('checked', true) :  $("input[id='input5']").prop('checked', true);
+         $("#input4").val(res.city);
+      }
 
   //COLLECT ALL ADDRESS CARDS FROM DATABASE
   function indexPull() {
