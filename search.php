@@ -21,7 +21,7 @@ try {
     $adressquery = $conn->prepare("SELECT * FROM adressCards WHERE id=$id");
     $adressquery->execute();
 
-    //Set array
+    //Set array to receive record
     $person = array();
     
     //Loop through all rows from table

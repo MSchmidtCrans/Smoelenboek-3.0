@@ -97,8 +97,7 @@ $(document).ready(function(){
 
          //Upon succes
          success: function(result) { 
-            console.log(result);
-            createAddresCardFromObject(obj)
+            createAddresCardFromObject(result);
             resetFormFields();
          if (result) {console.log("SUCCES")};
          },
@@ -205,11 +204,9 @@ $(document).ready(function(){
    //CREATE NEW ADDRESS CARD BASED ON OBJECT
    function createAddresCardFromObject(object) {
 
-      console.log(object.lastName);
-
       //Set variables
      let indexCardClass = "indexKaart";
-     let strFirstLtr = object.lastName.charAt(0);
+     let strFirstLtr = object.lastname.charAt(0);
      
      //Check for class values and set accordingly
      object.gender == "man" ? indexCardClass += " man": indexCardClass += " vrouw";
@@ -218,8 +215,8 @@ $(document).ready(function(){
      if (strFirstLtr.match(/[s-z]/i)){indexCardClass += " sTotz"};
     
      //Create new div and insert into DOM
-     $("#cards").append('<div id="' + object.id + '" class="' + indexCardClass + '"><div class="persInfo"><p>ID: '+ object.id + '</br>Naam: ' + object.firstName
-                         + ' ' + object.lasName + '</br>Woonplaats: ' + object.city + ' </br>Geslacht: ' + object.gender + '</p></div></div>');
+     $("#cards").append('<div id="' + object.id + '" class="' + indexCardClass + '"><div class="persInfo"><p>ID: '+ object.id + '</br>Naam: ' + object.firstname
+                         + ' ' + object.lastname + '</br>Woonplaats: ' + object.city + ' </br>Geslacht: ' + object.gender + '</p></div></div>');
     
    }
 });

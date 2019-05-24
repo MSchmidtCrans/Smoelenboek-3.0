@@ -25,10 +25,25 @@ try {
     VALUES ('$dataFields->firstName', '$dataFields->lastName', '$dataFields->gender', '$dataFields->city')";    
     $conn->exec($sql);
 
-    
+    //Get last inserted record to bounce back to js
+    $last_id = $conn->lastInsertId();
 
-    //Return JSON
-    echo ($myJson);
+    //Prepare and execute mysql query
+    $adressquery = $conn->prepare("SELECT * FROM adressCards WHERE id=$last_id");
+    $adressquery->execute();
+
+    //Set array to receive record
+    $person = array();
+    
+    //Loop through all rows from table
+    foreach($adressquery as $item) {   
+
+    //Add person array
+    $person = $item;
+    }
+
+    //Sent array as JSON
+    echo json_encode($person);
     }
 
     catch(PDOException $e)
