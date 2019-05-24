@@ -49,14 +49,26 @@ header {
     transition: 0.2s;
 }
 
-.clkImg {
+.saveImg {
     width: 60px;
     height: 60px;
     border-radius: 10px;
     transition: 0.2s;
 }
 
-.clkImg:hover {
+.saveImg:hover {
+    box-shadow: 5px 5px 5px grey;
+    cursor: pointer;
+}
+
+.cancelImg {
+    width: 60px;
+    height: 60px;
+    border-radius: 10px;
+    transition: 0.2s;
+}
+
+.cancelImg:hover {
     box-shadow: 5px 5px 5px grey;
     cursor: pointer;
 }

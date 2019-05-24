@@ -76,7 +76,7 @@ $(document).ready(function(){
 
       //Put form values in array
       let x= $("#dataForm" ).serializeArray();
-      
+      console.log(x);
       
       //Clean up form array to nice JSON
       let obj = {};
@@ -100,7 +100,7 @@ $(document).ready(function(){
          success: function(result) { 
             //console.log(result.firstName);
             console.log(result);
-            indexPull();
+            //indexPull()
             resetFormFields();
          if (result) {console.log("SUCCES")};
          },
@@ -115,8 +115,6 @@ $(document).ready(function(){
     //Call card values to form values upon clicking a address card
     $(document).on('click','.indexKaart',function(){
 
-       console.log(this.id);
-
       //Get data from database with ajax call
       $.ajax({
          url: "search.php",
@@ -126,10 +124,7 @@ $(document).ready(function(){
 
          //Upon succes
          success: function(result) { 
-            console.log(result);
-            console.log(result);
             storeData(result);
-            
             if (result) {console.log("SUCCES")};
          },
 
@@ -179,20 +174,7 @@ $(document).ready(function(){
  
    //Iterate through the JSON array for all entries
    for (x in data) {
-    
-    //Set variables
-     let indexCardClass = "indexKaart";
-     let strFirstLtr = data[x].lastname.charAt(0);
-     
-     //Check for class values and set accordingly
-     data[x].gender == "man" ? indexCardClass += " man": indexCardClass += " vrouw";
-     if (strFirstLtr.match(/[a-i]/i)){indexCardClass += " aToti"};
-     if (strFirstLtr.match(/[j-r]/i)){indexCardClass += " jTotr"};
-     if (strFirstLtr.match(/[s-z]/i)){indexCardClass += " sTotz"};
-    
-     //Create new div and insert into DOM
-     $("#cards").append('<div id="' + data[x].id + '" class="' + indexCardClass + '"><div class="persInfo"><p>ID: '+ data[x].id + '</br>Naam: ' + data[x].firstname
-                         + ' ' + data[x].lastname + '</br>Woonplaats: ' + data[x].city + ' </br>Geslacht: ' + data[x].gender + '</p></div></div>');
+      createAddresCard(data,x);
        }
     });
    }
@@ -200,5 +182,23 @@ $(document).ready(function(){
    //HIDE DIV BASED IN VAL
    function cloak(val) {
       $(val).hide();
+   }
+
+   function createAddresCard(array, counter) {
+
+      //Set variables
+     let indexCardClass = "indexKaart";
+     let strFirstLtr = array[counter].lastname.charAt(0);
+     
+     //Check for class values and set accordingly
+     array[counter].gender == "man" ? indexCardClass += " man": indexCardClass += " vrouw";
+     if (strFirstLtr.match(/[a-i]/i)){indexCardClass += " aToti"};
+     if (strFirstLtr.match(/[j-r]/i)){indexCardClass += " jTotr"};
+     if (strFirstLtr.match(/[s-z]/i)){indexCardClass += " sTotz"};
+    
+     //Create new div and insert into DOM
+     $("#cards").append('<div id="' + array[counter].id + '" class="' + indexCardClass + '"><div class="persInfo"><p>ID: '+ array[counter].id + '</br>Naam: ' + array[counter].firstname
+                         + ' ' + array[counter].lastname + '</br>Woonplaats: ' + array[counter].city + ' </br>Geslacht: ' + array[counter].gender + '</p></div></div>');
+    
    }
 });
