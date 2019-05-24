@@ -73,18 +73,16 @@ Javascript
     c. Use id to search database with ajax call on php search script
     d. Display database values in form fields
 
-5. Make delete address button on address div
+6. Make delete address button on address div -DONE-
 
-6. Connect button with PHP script
+7. Connect button with PHP script -DONE-
 
-7. Create PHP script to delete record in database
+8. Create PHP script to delete record in database -DONE-
 
-8. Remove new record correctly in html
+9. Remove new record correctly in html -DONE-
 
-9. Make edit address button on address div
+10. Edit save button functionality to decide wether to update or create record in database
 
-10. Connect button with PHP script
+12. Update PHP script to update record in database
 
-11. Create PHP script to update record in database
-
-12. Display updated record correctly in html
+13. Display updated record correctly in html

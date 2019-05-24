@@ -87,11 +87,16 @@ $(document).ready(function(){
 				obj[name] = value;
 			}
 		}
-	
+        
+      //Check if this is a update or a create call
+      let actionSel = "";
+      obj.id == "" ? actionSel = "create" : actionSel = "update";
+      console.log(actionSel);
+      
          //Sent JSON to php script
          $.ajax({
          url: "create.php",
-         data: {myJson: JSON.stringify(obj)},
+         data: {myJson: JSON.stringify(obj), action: actionSel},
          type: "POST",
          dataType : "JSON",
 
