@@ -81,8 +81,8 @@ Javascript
 
 9. Remove new record correctly in html -DONE-
 
-10. Edit save button functionality to decide wether to update or create record in database
+10. Edit save button functionality to decide wether to update or create record in database -DONE-
 
-12. Update PHP script to update record in database
+12. Update PHP script to update record in database -DONE-
 
-13. Display updated record correctly in html
+13. Display updated record correctly in html -DONE-

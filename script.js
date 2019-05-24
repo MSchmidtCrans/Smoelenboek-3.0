@@ -90,10 +90,12 @@ $(document).ready(function(){
         
       //Check if this is a update or a create call
       let actionSel = "";
-      obj.id == "" ? actionSel = "create" : actionSel = "update";
-      console.log(actionSel);
+
+      if (obj.id == "") {
       
+         //No ID means creating a new record in the database:
          //Sent JSON to php script
+         console.log('create');
          $.ajax({
          url: "create.php",
          data: {myJson: JSON.stringify(obj), action: actionSel},
@@ -110,8 +112,36 @@ $(document).ready(function(){
          //Upon error
          error: function(XMLHttpRequest, textStatus, errorThrown) { 
             alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+            }  
+         })
+
+         //An adress with a ID must be updated:
+      } else {
+
+      //Sent update request to PHP
+      //Get data from database with ajax call
+      console.log('update');
+      
+      $.ajax({
+         url: "update.php",
+         data: {myJson: JSON.stringify(obj), id: obj.id},
+         type: "POST",
+         dataType : "JSON",
+
+         //Upon succes
+         success: function(result) {
+            console.log(result);
+            $("#" +  obj.id).remove();
+            createAddresCardFromObject(result);
+            if (result) {console.log("SUCCES")};
+         },
+
+         //Upon error
+         error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
         }  
      })
+      }
     });
 
 
