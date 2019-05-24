@@ -20,12 +20,15 @@ try {
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
     
+    //Insert new data to database
     $sql = "INSERT INTO adressCards (firstname, lastname, gender, city)
     VALUES ('$dataFields->firstName', '$dataFields->lastName', '$dataFields->gender', '$dataFields->city')";    
     $conn->exec($sql);
 
-    //Return something for the AJAX call to complete
-    echo ($datafields);
+    
+
+    //Return JSON
+    echo ($myJson);
     }
 
     catch(PDOException $e)

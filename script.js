@@ -71,12 +71,11 @@ $(document).ready(function(){
           reslijst.show();
     });
 
-    //Call save function when clicking the save btn/img
+    //Code for clicking the save btn/img
     $(".saveImg").click(function(){
 
       //Put form values in array
       let x= $("#dataForm" ).serializeArray();
-      console.log(x);
       
       //Clean up form array to nice JSON
       let obj = {};
@@ -94,13 +93,12 @@ $(document).ready(function(){
          url: "create.php",
          data: {myJson: JSON.stringify(obj)},
          type: "POST",
-         dataType : "TEXT",
+         dataType : "JSON",
 
          //Upon succes
          success: function(result) { 
-            //console.log(result.firstName);
             console.log(result);
-            //indexPull()
+            createAddresCardFromObject(obj)
             resetFormFields();
          if (result) {console.log("SUCCES")};
          },
@@ -126,6 +124,7 @@ $(document).ready(function(){
          success: function(result) { 
             storeData(result);
             if (result) {console.log("SUCCES")};
+            
          },
 
          //Upon error
@@ -174,7 +173,7 @@ $(document).ready(function(){
  
    //Iterate through the JSON array for all entries
    for (x in data) {
-      createAddresCard(data,x);
+      createAddresCardFromArray(data,x);
        }
     });
    }
@@ -184,7 +183,8 @@ $(document).ready(function(){
       $(val).hide();
    }
 
-   function createAddresCard(array, counter) {
+   //CREATE NEW ADDRESS CARD BASED ON ARRAY WITH ALL DATABASE ENTRIES
+   function createAddresCardFromArray(array, counter) {
 
       //Set variables
      let indexCardClass = "indexKaart";
@@ -199,6 +199,27 @@ $(document).ready(function(){
      //Create new div and insert into DOM
      $("#cards").append('<div id="' + array[counter].id + '" class="' + indexCardClass + '"><div class="persInfo"><p>ID: '+ array[counter].id + '</br>Naam: ' + array[counter].firstname
                          + ' ' + array[counter].lastname + '</br>Woonplaats: ' + array[counter].city + ' </br>Geslacht: ' + array[counter].gender + '</p></div></div>');
+    
+   }
+
+   //CREATE NEW ADDRESS CARD BASED ON OBJECT
+   function createAddresCardFromObject(object) {
+
+      console.log(object.lastName);
+
+      //Set variables
+     let indexCardClass = "indexKaart";
+     let strFirstLtr = object.lastName.charAt(0);
+     
+     //Check for class values and set accordingly
+     object.gender == "man" ? indexCardClass += " man": indexCardClass += " vrouw";
+     if (strFirstLtr.match(/[a-i]/i)){indexCardClass += " aToti"};
+     if (strFirstLtr.match(/[j-r]/i)){indexCardClass += " jTotr"};
+     if (strFirstLtr.match(/[s-z]/i)){indexCardClass += " sTotz"};
+    
+     //Create new div and insert into DOM
+     $("#cards").append('<div id="' + object.id + '" class="' + indexCardClass + '"><div class="persInfo"><p>ID: '+ object.id + '</br>Naam: ' + object.firstName
+                         + ' ' + object.lasName + '</br>Woonplaats: ' + object.city + ' </br>Geslacht: ' + object.gender + '</p></div></div>');
     
    }
 });
