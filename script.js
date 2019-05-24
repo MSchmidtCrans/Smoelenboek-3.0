@@ -75,7 +75,7 @@ $(document).ready(function(){
     $(".saveImg").click(function(){
 
       //Put form values in array
-      let x= $("#dataForm" ).serializeArray();
+      let x= $("#dataForm").serializeArray();
       
       //Clean up form array to nice JSON
       let obj = {};
@@ -109,6 +109,49 @@ $(document).ready(function(){
      })
     });
 
+
+    //Delete record after clicking the delete button
+    $(".delImg").click(function() {
+      
+      //Put form values in array
+      let x= $("#dataForm").serializeArray();
+      
+      //Clean up form array to nice JSON
+      let obj = {};
+      for( let i = 0; i < x.length; ++i ) {
+			let element = x[i];
+			let name = element.name;
+			let value = element.value;
+			if( name ) {
+				obj[name] = value;
+         }
+		}
+
+      //Get data from database with ajax call
+      $.ajax({
+         url: "delete.php",
+         data: {id: obj.id},
+         type: "POST",
+         dataType : "TEXT",
+
+         //Upon succes
+         success: function(result) {
+            //$("#id").remove(":contains(obj.id)");
+            $("#id").filter(":contains(obj.id)").remove();
+            if (result) {console.log("SUCCES")};
+         },
+
+         //Upon error
+         error: function(XMLHttpRequest, textStatus, errorThrown) { 
+            alert("Status: " + textStatus); alert("Error: " + errorThrown); 
+        }  
+     })
+
+      //Display hidden form 
+      $("#dataEntry").css("display", "block");
+    });
+
+
     //Call card values to form values upon clicking a address card
     $(document).on('click','.indexKaart',function(){
 
@@ -134,8 +177,6 @@ $(document).ready(function(){
 
       //Display hidden form 
       $("#dataEntry").css("display", "block");
-
-      
     });
 
 
