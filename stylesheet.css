@@ -89,3 +89,7 @@ Header h1 {
 .buttonactive {
     background-color: rgb(255, 0, 0);
 }
+
+.statusClass {
+    color: white;
+}

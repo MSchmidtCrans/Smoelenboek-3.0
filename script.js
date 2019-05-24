@@ -92,7 +92,10 @@ $(document).ready(function(){
       let actionSel = "";
 
       if (obj.id == "") {
-      
+         
+         //Status update
+         $("#status").text("CREATING NEW ADDRESS");
+
          //No ID means creating a new record in the database:
          //Sent JSON to php script
          console.log('create');
@@ -106,7 +109,7 @@ $(document).ready(function(){
          success: function(result) { 
             createAddresCardFromObject(result);
             resetFormFields();
-         if (result) {console.log("SUCCES")};
+            $("#status").text("SUCCESS, NEW ADDRESS CREATED");
          },
 
          //Upon error
@@ -122,6 +125,9 @@ $(document).ready(function(){
       //Get data from database with ajax call
       console.log('update');
       
+      //Change status field
+      $("#status").text("UPDATING");
+
       $.ajax({
          url: "update.php",
          data: {myJson: JSON.stringify(obj), id: obj.id},
@@ -133,7 +139,8 @@ $(document).ready(function(){
             console.log(result);
             $("#" +  obj.id).remove();
             createAddresCardFromObject(result);
-            if (result) {console.log("SUCCES")};
+            resetFormFields();
+            $("#status").text("SUCCESS, ADDRESS UPDATED");
          },
 
          //Upon error
@@ -163,6 +170,10 @@ $(document).ready(function(){
 		}
 
       //Get data from database with ajax call
+
+      //Change status field
+      $("#status").text("DELETING RECORD");
+
       $.ajax({
          url: "delete.php",
          data: {id: obj.id},
@@ -174,7 +185,8 @@ $(document).ready(function(){
             //$("#id").remove(":contains(obj.id)");
             console.log(obj.id);
             $("#" +  obj.id).remove();
-            if (result) {console.log("SUCCES")};
+            resetFormFields();
+            $("#status").text("SUCCESS, ADDRESS DELETED");
          },
 
          //Upon error
@@ -230,7 +242,6 @@ $(document).ready(function(){
       $("#input2").val("");
       $("input[name='gender']").prop('checked', false);
       $("#input4").val("");
-      $("#dataEntry").css("display", "none"); 
    }
 
 
