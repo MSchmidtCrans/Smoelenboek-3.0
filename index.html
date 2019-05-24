@@ -16,22 +16,24 @@
   <div class="mainContainer">
     <Header>
     <h1>Smoelenboek Index</h1>
-    <h2 style="color: white">Add Address<img src="plus.png" class="plusImg" alt="plus sign" onclick="document.getElementById('dataEntry').style.display='block'"></h2>
+    -[<span id="status" class="statusClass">STATUS</span>]-
     </Header>
 
-    <div id="dataEntry" class="dataFields" style="display: none;">
+    <div id="dataEntry" class="dataFields">
       <form action="#" id="dataForm">
+                <input id="id" name="id" type= "text" size="6" hidden>
         <label for="input1">First Name: </label>
-                <input id="input1" type="text" name="firstName">
+                <input id="input1" type="text" name="firstname">
         <label for="input2">Last Name: </label>
-                <input id="input2" type="text" name="lastName">
+                <input id="input2" type="text" name="lastname">
         <label for="input4">City: </label>
                 <input id="input4" type="text" name="city">
-                <input id="input3" type="radio" name="gender" value="man" checked>Man
-                <input type="radio" name="gender" value="vrouw">Vrouw
+                <input id="input3" type="radio" name="gender" value="man">Man
+                <input id="input5" type="radio" name="gender" value="vrouw">Vrouw
         </form>    
-             <img src="save.png" class="saveImg" alt="plus sign" onclick="">
-             <img src="cancel.png" class="cancelImg" alt="plus sign">
+        <img src="save.png" class="clkImg saveImg" alt="plus sign" onclick="">
+        <img src="delete.png" class="clkImg delImg" alt="plus sign">
+        <img src="stop.png" class="clkImg cancelImg" alt="plus sign">
 
     </div>
 

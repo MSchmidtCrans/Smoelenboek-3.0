@@ -2,13 +2,13 @@
 
 header('Content-type: application/json; charset=utf-8');
 
-$myJson=$_POST['myJson'];
-$dataFields = json_decode($myJson);
-
-
 $servername = "localhost";
 $username = "phpdb";
 $password = "wachtwoord";
+
+$id = $_POST['id']; 
+
+
 
 try {
     //connect to DB
@@ -16,18 +16,9 @@ try {
 
     // set the PDO error mode to exception
     $conn->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
-    
-    //Insert new data to database 
-    
-    $sql = "INSERT INTO adressCards (firstname, lastname, gender, city)
-    VALUES ('$dataFields->firstname', '$dataFields->lastname', '$dataFields->gender', '$dataFields->city')";    
-    $conn->exec($sql);
-
-    //Get last inserted record to bounce back to js
-    $last_id = $conn->lastInsertId();
 
     //Prepare and execute mysql query
-    $adressquery = $conn->prepare("SELECT * FROM adressCards WHERE id=$last_id");
+    $adressquery = $conn->prepare("SELECT * FROM adressCards WHERE id=$id");
     $adressquery->execute();
 
     //Set array to receive record
@@ -42,9 +33,9 @@ try {
 
     //Sent array as JSON
     echo json_encode($person);
-    }
 
-    catch(PDOException $e)
+    }
+catch(PDOException $e)
     {
     echo $sql . "<br>" . $e->getMessage();
     }

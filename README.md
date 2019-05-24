@@ -54,23 +54,35 @@ Javascript
     c. Reset fields upon cancel and close data entry div
 
 2. Connect button with PHP script -DONE-
+    a. Put form data in array
+    b. Transform from array into clean json object
+    c. Check communication with ajax calls
 
-3. Create PHP script to create new record in database
+3. Create PHP script to create new record in database -DONE-
+    a. Test DB insert with plain data
+    b. Add variables to SQL insert statement
 
-4. Display new record correctly in html
+4. Display new record correctly in html -DONE-
+    a. Start new data pull
+    b. Create form reset function
+    c. Reset data entry fields
 
-5. Make delete address button on address div
+5. Upon selecting address card display all card values in form entry fields for followup functions: delete and edit. -DONE-
+    a. Add unique id field to form data entry
+    b. Create click event in Jquery to get unique id
+    c. Use id to search database with ajax call on php search script
+    d. Display database values in form fields
 
-6. Connect button with PHP script
+6. Make delete address button on address div -DONE-
 
-7. Create PHP script to delete record in database
+7. Connect button with PHP script -DONE-
 
-8. Remove new record correctly in html
+8. Create PHP script to delete record in database -DONE-
 
-9. Make edit address button on address div
+9. Remove new record correctly in html -DONE-
 
-10. Connect button with PHP script
+10. Edit save button functionality to decide wether to update or create record in database -DONE-
 
-11. Create PHP script to update record in database
+12. Update PHP script to update record in database -DONE-
 
-12. Display updated record correctly in html
+13. Display updated record correctly in html -DONE-
