@@ -137,7 +137,8 @@ $(document).ready(function(){
          //Upon succes
          success: function(result) {
             //$("#id").remove(":contains(obj.id)");
-            $("#id").filter(":contains(obj.id)").remove();
+            console.log(obj.id);
+            $("#" +  obj.id).remove();
             if (result) {console.log("SUCCES")};
          },
 
